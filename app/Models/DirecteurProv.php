@@ -7,7 +7,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class DirecteurProv extends Authenticatable
 {
-    use Notifiable;
+    // use Notifiable;
 
     protected $guard = 'directeur_prov';
 
