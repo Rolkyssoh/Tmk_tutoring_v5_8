@@ -72,7 +72,7 @@
                                       <strong>{{ $message }}</strong>
                                   </span>
                               @enderror
-                        </div>
+                        </div> 
  
                         <div class="form-group">
                           <label for="password-confirm">{{ __('Confirm Password') }}</label>
@@ -86,7 +86,7 @@
                                   <span class="invalid-feedback" role="alert">
                                       <strong>{{ $message }}</strong>
                                   </span>
-                              @enderror 
+                              @enderror  
                         </div>
  
                         <div class="form-group row mb-0">

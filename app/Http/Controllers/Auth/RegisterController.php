@@ -136,6 +136,10 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'nom_enseignant' => ['required', 'string', 'max:255'],
+            'prenom_enseignant' => ['required', 'string', 'max:255'],
+            'adresse_enseignant' => ['required', 'string', 'max:255'],
+            'tel_enseignant' => ['required', 'string', 'max:255'],
+            // 'photo_enseignant' => ['string', 'max:255'],
             'email_enseignant' => ['required', 'string', 'email', 'max:255', 'unique:enseignants'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
@@ -147,6 +151,10 @@ class RegisterController extends Controller
         $this->enseignantValidator($request->all())->validate();
         $admin = Enseignant::create([
             'nom_enseignant' => $request['nom_enseignant'],
+            'prenom_enseignant' => $request['prenom_enseignant'],
+            'adresse_enseignant' => $request['adresse_enseignant'],
+            'tel_enseignant' => $request['tel_enseignant'],
+            // 'photo_enseignant' => $request['photo_enseignant'],
             'email_enseignant' => $request['email_enseignant'],
             'password' => Hash::make($request['password']),
         ]);
@@ -167,13 +175,13 @@ class RegisterController extends Controller
             'sexe' => ['required', 'string', 'max:255'],
             'code_massar' => ['required', 'string', 'max:255'],
             'ville_origine' => ['required', 'string', 'max:255'],
-            'date_naissance' => ['required', 'string', 'max:255'],
+            'date_naissance' => ['required', 'date', 'max:255'],
             'telephone' => ['required', 'string', 'max:255'],
             'ville_residence' => ['required', 'string', 'max:255'],
             'adresse_etudiant' => ['required', 'string', 'max:255'],
-            'email_etudiant' => ['required', 'string', 'email', 'max:255', 'unique:etudiants'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:etudiants'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            // 'photo_etudient' => ['required', 'string', 'max:255'],
+            // 'photo_etudient' => ['string', 'max:255'],
         ]);
     }
 
@@ -190,7 +198,7 @@ class RegisterController extends Controller
             'telephone' => $request['telephone'],
             'ville_residence' => $request['ville_residence'],
             'adresse_etudiant' => $request['adresse_etudiant'],
-            'email_etudiant' => $request['email_etudiant'],
+            'email' => $request['email'],
             'password' => Hash::make($request['password']),
         ]);
         return redirect()->intended('login/etudiant');
@@ -207,6 +215,10 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'nom_dreg' => ['required', 'string', 'max:255'],
+            'prenom_dreg' => ['required', 'string', 'max:255'],
+            'adresse_dreg' => ['required', 'string', 'max:255'],
+            'telephone' => ['required', 'string', 'max:255'],
+            'photo_dreg' => ['required', 'string', 'max:255'],
             'email_dreg' => ['required', 'string', 'email', 'max:255', 'unique:directeur_regs'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
@@ -218,6 +230,10 @@ class RegisterController extends Controller
         $this->directeurRegValidator($request->all())->validate();
         $admin = DirecteurReg::create([
             'nom_dreg' => $request['nom_dreg'],
+            'prenom_dreg' => $request['prenom_dreg'],
+            'adresse_dreg' => $request['adresse_dreg'],
+            'telephone' => $request['telephone'],
+            'photo_dreg' => $request['photo_dreg'],
             'email_dreg' => $request['email_dreg'],
             'password' => Hash::make($request['password']),
         ]);
@@ -234,6 +250,10 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'nom_dr_prov' => ['required', 'string', 'max:255'],
+            'prenom_dr_prov' => ['required', 'string', 'max:255'],
+            'adresse_dr_prov' => ['required', 'string', 'max:255'],
+            'telephone' => ['required', 'string', 'max:255'],
+            // 'photo_dr_prov' => ['string', 'max:255'],
             'email_dr_prov' => ['required', 'string', 'email', 'max:255', 'unique:directeur_provs'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
@@ -245,6 +265,10 @@ class RegisterController extends Controller
         $this->directeurProvValidator($request->all())->validate();
         $admin = DirecteurProv::create([
             'nom_dr_prov' => $request['nom_dr_prov'],
+            'prenom_dr_prov' => $request['prenom_dr_prov'],
+            'adresse_dr_prov' => $request['adresse_dr_prov'],
+            'telephone' => $request['telephone'],
+            'photo_dr_prov' => $request['photo_dr_prov'],
             'email_dr_prov' => $request['email_dr_prov'],
             'password' => Hash::make($request['password']),
         ]);
@@ -262,6 +286,10 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'nom_inspect' => ['required', 'string', 'max:255'],
+            'prenom_inspect' => ['required', 'string', 'max:255'],
+            'telephone' => ['required', 'string', 'max:255'],
+            'adresse_inspect' => ['required', 'string', 'max:255'],
+            'photo_inspect' => ['string', 'max:255'],
             'email_inspect' => ['required', 'string', 'email', 'max:255', 'unique:inspecteur_regs'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
@@ -273,6 +301,10 @@ class RegisterController extends Controller
         $this->inspecteurValidator($request->all())->validate();
         $admin = InspecteurReg::create([
             'nom_inspect' => $request['nom_inspect'],
+            'prenom_inspect' => $request['prenom_inspect'],
+            'telephone' => $request['telephone'],
+            'adresse_inspect' => $request['adresse_inspect'],
+            'photo_inspect' => $request['photo_inspect'],
             'email_inspect' => $request['email_inspect'],
             'password' => Hash::make($request['password']),
         ]);
@@ -290,6 +322,9 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'nom_gestionnaire' => ['required', 'string', 'max:255'],
+            'prenom_gestionsalle' => ['required', 'string', 'max:255'],
+            'adresse_gestionsalle' => ['required', 'string', 'max:255'],
+            'photo_gestionsalle' => ['string', 'max:255'],
             'email_gestionnaire' => ['required', 'string', 'email', 'max:255', 'unique:gest_salles'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
@@ -318,6 +353,10 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'nom_parent' => ['required', 'string', 'max:255'],
+            'prenom_parent' => ['required', 'string', 'max:255'],
+            'telephone' => ['required', 'string', 'max:255'],
+            'adresse_parent' => ['required', 'string', 'max:255'],
+            'photo_parent' => ['string', 'max:255'],
             'email_parent' => ['required', 'string', 'email', 'max:255', 'unique:parent_tuteurs'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
@@ -329,6 +368,10 @@ class RegisterController extends Controller
         $this->parentValidator($request->all())->validate();
         $admin = ParentTuteur::create([
             'nom_parent' => $request['nom_parent'],
+            'prenom_parent' => $request['prenom_parent'],
+            'telephone' => $request['telephone'],
+            'adresse_parent' => $request['adresse_parent'],
+            'photo_parent' => $request['photo_parent'],
             'email_parent' => $request['email_parent'],
             'password' => Hash::make($request['password']),
         ]);

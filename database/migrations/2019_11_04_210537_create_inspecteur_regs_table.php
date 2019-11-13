@@ -14,6 +14,7 @@ class CreateInspecteurRegsTable extends Migration
     public function up()
     {
         Schema::create('inspecteur_regs', function (Blueprint $table) {
+            $table->engine = "InnoDB";
             $table->increments('id');
             $table->string('nom_inspect');
             $table->string('prenom_inspect');

@@ -55,7 +55,7 @@
                             </div>
 
                             <div class="form-group">
-                              <label for="ville_origine">{{ __('Code Massar') }}</label>
+                              <label for="ville_origine">{{ __('Ville d\'origine') }}</label>
                                   <input id="ville_origine" type="text" class="form-control @error('ville_origine') is-invalid @enderror" name="ville_origine" value="{{ old('ville_origine') }}" autocomplete="ville_origine" placeholder="Enter votre ville_origine" autofocus>
                                   @error('ville_origine')
                                       <span class="invalid-feedback" role="alert">
@@ -66,7 +66,7 @@
 
                             <div class="form-group">
                               <label for="date_naissance">{{ __('Date Naissance') }}</label>
-                                  <input id="date_naissance" type="text" class="form-control @error('date_naissance') is-invalid @enderror" name="date_naissance" value="{{ old('date_naissance') }}" autocomplete="date_naissance" placeholder="Enter votre Naissance" autofocus>
+                                  <input id="date_naissance" type="date" class="form-control @error('date_naissance') is-invalid @enderror" name="date_naissance" value="{{ old('date_naissance') }}" autocomplete="date_naissance" placeholder="Enter votre Naissance" autofocus>
                                   @error('date_naissance')
                                       <span class="invalid-feedback" role="alert">
                                           <strong>{{ $message }}</strong>
@@ -75,7 +75,7 @@
                             </div>
 
                             <div class="form-group">
-                              <label for="telephone">{{ __('Date Naissance') }}</label>
+                              <label for="telephone">{{ __('Numéro de tel') }}</label>
                                   <input id="telephone" type="text" class="form-control @error('telephone') is-invalid @enderror" name="telephone" value="{{ old('telephone') }}" autocomplete="telephone" placeholder="Enter votre Telephone" autofocus>
                                   @error('telephone')
                                       <span class="invalid-feedback" role="alert">
@@ -85,7 +85,7 @@
                             </div>
 
                             <div class="form-group">
-                              <label for="ville_residence">{{ __('Date Naissance') }}</label>
+                              <label for="ville_residence">{{ __('Ville de résidence') }}</label>
                                   <input id="ville_residence" type="text" class="form-control @error('ville_residence') is-invalid @enderror" name="ville_residence" value="{{ old('ville_residence') }}" autocomplete="ville_residence" placeholder="Enter votre Ville Residence" autofocus>
                                   @error('ville_residence')
                                       <span class="invalid-feedback" role="alert">
@@ -105,9 +105,9 @@
                             </div>
 
                             <div class="form-group">
-                              <label for="email_etudiant">{{ __('Email etudiant') }}</label>
-                                  <input id="email_etudiant" type="email" class="form-control @error('email_etudiant') is-invalid @enderror" name="email_etudiant" value="{{ old('email_etudiant') }}" autocomplete="email_etudiant" placeholder="Enter votre email_etudiant" autofocus>
-                                  @error('email_etudiant')
+                              <label for="email">{{ __('Email etudiant') }}</label>
+                                  <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" autocomplete="email" placeholder="Enter votre email" autofocus>
+                                  @error('email')
                                       <span class="invalid-feedback" role="alert">
                                           <strong>{{ $message }}</strong>
                                       </span>

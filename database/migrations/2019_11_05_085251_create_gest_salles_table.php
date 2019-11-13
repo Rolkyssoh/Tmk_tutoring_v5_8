@@ -20,6 +20,7 @@ class CreateGestSallesTable extends Migration
             $table->string('prenom_gestionsalle');
             $table->string('email_gestionnaire')->unique();
             $table->string('adresse_gestionsalle');
+            $table->bigInteger('tel_gestionsalle');
             $table->string('password');
             $table->string('photo_gestionsalle');
             $table->timestamp('email_verified_at')->nullable();

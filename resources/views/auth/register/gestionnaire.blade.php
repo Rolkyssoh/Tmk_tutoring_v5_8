@@ -13,7 +13,7 @@
                     <form action='{{ url("register/gestionnaire") }}' method="POST">
                         @csrf
                         <div class="form-group">
-                          <label for="nom_gestionnaire">{{ __('Nom Directeur') }}</label>
+                          <label for="nom_gestionnaire">{{ __('Nom gestionnaire') }}</label>
                           {{--  <div class="col-md-6">  --}}
                               <input id="nom_gestionnaire" type="text" class="form-control @error('nom_gestionnaire') is-invalid @enderror" name="nom_gestionnaire" value="{{ old('nom_gestionnaire') }}" autocomplete="nom_gestionnaire" placeholder="Enter votre Nom" autofocus>
                               @error('nom_gestionnaire')
@@ -25,7 +25,7 @@
                         </div>
 
                         <div class="form-group">
-                          <label for="prenom_gestionsalle">{{ __('Prenom Directeur') }}</label>
+                          <label for="prenom_gestionsalle">{{ __('Prenom gestionnaire') }}</label>
                               <input id="prenom_gestionsalle" type="text" class="form-control @error('prenom_gestionsalle') is-invalid @enderror" name="prenom_gestionsalle" value="{{ old('prenom_gestionsalle') }}" autocomplete="prenom_gestionsalle" placeholder="Enter votre Prenom" autofocus>
                               @error('prenom_gestionsalle')
                                   <span class="invalid-feedback" role="alert">
@@ -35,7 +35,7 @@
                         </div>
 
                         <div class="form-group">
-                          <label for="adresse_gestionsalle">{{ __('Adresse Directeur') }}</label>
+                          <label for="adresse_gestionsalle">{{ __('Adresse gestionnaire') }}</label>
                               <input id="adresse_gestionsalle" type="text" class="form-control @error('adresse_gestionsalle') is-invalid @enderror" name="adresse_gestionsalle" value="{{ old('adresse_gestionsalle') }}" autocomplete="adresse_gestionsalle" placeholder="Enter votre Adresse" autofocus>
                               @error('adresse_gestionsalle')
                                   <span class="invalid-feedback" role="alert">
@@ -45,9 +45,9 @@
                         </div>
 
                         <div class="form-group">
-                          <label for="email_gestionnaire">{{ __('Email Directeur') }}</label>
-                              <input id="email_gestionnaire" type="email" class="form-control @error('email_gestionnaire') is-invalid @enderror" name="email_gestionnaire" value="{{ old('email_gestionnaire') }}" autocomplete="email_gestionnaire" placeholder="Enter votre Email" autofocus>
-                              @error('email_gestionnaire')
+                          <label for="tel_gestionsalle">{{ __('Adresse gestionnaire') }}</label>
+                              <input id="tel_gestionsalle" type="text" class="form-control @error('tel_gestionsalle') is-invalid @enderror" name="tel_gestionsalle" value="{{ old('tel_gestionsalle') }}" autocomplete="tel_gestionsalle" placeholder="Enter votre Adresse" autofocus>
+                              @error('tel_gestionsalle')
                                   <span class="invalid-feedback" role="alert">
                                       <strong>{{ $message }}</strong>
                                   </span>
@@ -55,7 +55,17 @@
                         </div>
 
                         <div class="form-group">
-                          <label for="password">{{ __('Password Directeur') }}</label>
+                          <label for="email_gestionnaire">{{ __('Email gestionnaire') }}</label>
+                              <input id="email_gestionnaire" type="email" class="form-control @error('email_gestionnaire') is-invalid @enderror" name="email_gestionnaire" value="{{ old('email_gestionnaire') }}" autocomplete="email_gestionnaire" placeholder="Entrez votre Numéro" autofocus>
+                              @error('email_gestionnaire')
+                                  <span class="invalid-feedback" role="alert">
+                                      <strong>{{ $message }}</strong>
+                                  </span>
+                              @enderror 
+                        </div>
+
+                        <div class="form-group">
+                          <label for="password">{{ __('Password gestionnaire') }}</label>
                               <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" value="{{ old('password') }}" autocomplete="password" placeholder="Enter votre Password" autofocus>
                               @error('password')
                                   <span class="invalid-feedback" role="alert">

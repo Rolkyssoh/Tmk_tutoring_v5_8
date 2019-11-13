@@ -9,16 +9,7 @@
                             <h1 class="mytitle">Create Enseignant</h1>  
                    </div>  <br>
                     <div class="card-body">   
-    
-                            {{--  @if(count($errors)>0)
-                            <ul class="navbar-nav mr-auto">
-                                  @foreach ($errors->all() as $er) 
-                                 <li class="nav-item active">
-                                       {{$er}}
-                                      </li>       
-                                 @endforeach
-                                  </ul> <br>
-                             @endif    --}}
+
                       <form action='{{ url("register/enseignant") }}' method="POST">
                         @csrf
                         <div class="form-group">
@@ -49,7 +40,7 @@
                               @error('adresse_enseignant')
                                   <span class="invalid-feedback" role="alert">
                                       <strong>{{ $message }}</strong>
-                                  </span>
+                                  </span> 
                               @enderror
                         </div>
 
@@ -95,7 +86,7 @@
                                   <span class="invalid-feedback" role="alert">
                                       <strong>{{ $message }}</strong>
                                   </span>
-                              @enderror
+                              @enderror 
                         </div>
                         <div class="form-group row mb-0">
                           <div class="col-md-6 offset-md-4">

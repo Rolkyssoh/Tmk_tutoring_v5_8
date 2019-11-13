@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card"> 
-                    <div class="card-header">   
+                    <div class="card-header">    
                             <h1 class="mytitle"> Create Directeur Regionale</h1>  
                    </div>  <br>
                     <div class="card-body">  
@@ -68,7 +68,7 @@
                           <label for="password">{{ __('Password Directeur') }}</label>
                               <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" value="{{ old('password') }}" autocomplete="password" placeholder="Enter votre Password" autofocus>
                               @error('password')
-                                  <span class="invalid-feedback" role="alert">
+                                 <span class="invalid-feedback" role="alert">
                                       <strong>{{ $message }}</strong>
                                   </span>
                               @enderror

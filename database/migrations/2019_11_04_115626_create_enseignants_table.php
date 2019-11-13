@@ -14,12 +14,13 @@ class CreateEnseignantsTable extends Migration
     public function up()
     {
         Schema::create('enseignants', function (Blueprint $table) {
+            $table->engine = "InnoDB";
             $table->increments('id');
             $table->string('nom_enseignant');
             $table->string('prenom_enseignant');
             $table->string('tel_enseignant');
             $table->string('email_enseignant');
-            $table->date('adresse_enseignant');
+            $table->string('adresse_enseignant');
             $table->string('photo_enseignant')->nullable();
             $table->string('password');
             $table->timestamp('email_verified_at')->nullable();
