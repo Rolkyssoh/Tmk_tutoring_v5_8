@@ -14,11 +14,17 @@ class CreateDirecteurProvsTable extends Migration
     public function up()
     {
         Schema::create('directeur_provs', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('nom_dr_prov');
-            $table->string('email_dr_prov')->unique();
+            $table->engine="InnoDB";
+            $table->bigIncrements('id');
+            $table->string('nom_directeurprovinciale');
+            $table->string('prenom_directeurprovinciale');
+            $table->string('email_directeurprovinciale');
+            $table->string('telephone_directeurprovinciale');
+            $table->string('photo_directeurprovinciale');
+            $table->BigInteger('id_dirregion_fk')->unsigned()->nullable(); 
+            $table->string('adresse_directeurprovinciale');
+            $table->BigInteger('id_conference_fk')->unsigned()->nullable();  
             $table->string('password');
-            $table->boolean('is_super')->default(false);
             $table->rememberToken();
             $table->timestamps();
         });

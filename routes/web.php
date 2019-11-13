@@ -12,8 +12,13 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('inscriptions');
 });
+
+Route::get('/apropos' , 'HomeController@apropos');
+
+Route::get('/contacteznous' , 'HomeController@contacteznous');
+
 
 Auth::routes();
 
@@ -61,6 +66,7 @@ Route::post('/register/parent_tut', 'Auth\RegisterController@createParent');
 
 
 
+ 
 
 Route::view('/home', 'home')->middleware('auth');
 Route::view('/admin', 'admin');

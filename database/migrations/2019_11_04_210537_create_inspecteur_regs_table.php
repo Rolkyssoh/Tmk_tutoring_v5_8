@@ -14,11 +14,18 @@ class CreateInspecteurRegsTable extends Migration
     public function up()
     {
         Schema::create('inspecteur_regs', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('nom_inspect');
-            $table->string('email_inspect')->unique();
-            $table->string('password');
-            $table->boolean('is_inspect')->default(false);
+            $table->engine="InnoDB";
+            $table->bigIncrements('id');
+            $table->string('nom_inspecteur');
+            $table->string('prenom_inspecteur');
+            $table->string('email_inspecteur'); 
+            $table->string('telephone_inspecteur');
+            $table->string('adresse_inspecteur'); 
+            $table->BigInteger('id_matiere_fk')->unsigned()->nullable(); 
+            $table->BigInteger('id_agenda_fk')->unsigned()->nullable(); 
+            $table->BigInteger('id_dirregion_fk')->unsigned()->nullable(); 
+            $table->BigInteger('id_conference_fk')->unsigned()->nullable(); 
+            $table->string('password'); 
             $table->rememberToken();
             $table->timestamps();
         });

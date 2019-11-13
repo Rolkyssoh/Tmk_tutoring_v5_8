@@ -14,10 +14,19 @@ class CreateGestSallesTable extends Migration
     public function up()
     {
         Schema::create('gest_salles', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('nom_gestionnaire');
-            $table->string('email_gestionnaire')->unique();
+            $table->engine="InnoDB";
+            $table->bigIncrements('id');
+            $table->string('nom_gestionsalle');
+            $table->string('prenom_gestionsalle');
+            $table->string('email_gestionsalle');
+            $table->string('adresse_gestionsalle');
             $table->string('password');
+            $table->BigInteger('id_dirregion_fk')->unsigned()->nullable();   
+            $table->BigInteger('id_dirprovinciale_fk')->unsigned()->nullable(); 
+            $table->BigInteger('id_seance_fk')->unsigned()->nullable(); 
+            $table->BigInteger('id_salle_fk')->unsigned()->nullable();  
+            $table->string('photo_gestionsalle');   
+            $table->BigInteger('id_conference_fk')->unsigned()->nullable();
             $table->boolean('is_super')->default(false);
             $table->rememberToken();
             $table->timestamps();

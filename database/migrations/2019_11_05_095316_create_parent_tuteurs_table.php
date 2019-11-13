@@ -14,10 +14,18 @@ class CreateParentTuteursTable extends Migration
     public function up()
     {
         Schema::create('parent_tuteurs', function (Blueprint $table) {
-            $table->increments('id');
+            $table->engine="InnoDB"; 
+            $table->bigIncrements('id');
             $table->string('nom_parent');
-            $table->string('email_parent')->unique();
+            $table->string('prenom_parent');
+            $table->string('telephone_parent');
+            $table->string('adresse_parent');
+            $table->string('photo_parent');
             $table->string('password');
+            $table->string('email_parent');  
+            $table->BigInteger('id_dirregion_fk')->unsigned()->nullable(); 
+            $table->BigInteger('id_dirprovinciale_fk')->unsigned()->nullable(); 
+            $table->BigInteger('id_conference_fk')->unsigned()->nullable();  
             $table->boolean('is_parent')->default(false);
             $table->rememberToken();
             $table->timestamps();

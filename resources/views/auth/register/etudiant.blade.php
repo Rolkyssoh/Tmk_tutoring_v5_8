@@ -1,72 +1,93 @@
-@extends('layouts.app')
+@extends('welcome')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ isset($etudiant) ? ucwords($etudiant) : ""}} {{ __('Register') }}</div>
 
-                <div class="card-body">
-                    {{--  Formulaire de l'admin  --}}
-                    <form method="POST" action='{{ url("register/etudiant") }}' aria-label="{{ __('Register') }}">
-                        @csrf
 
-                        <div class="form-group row">
-                            <label for="nom_etudiant" class="col-md-4 col-form-label text-md-right">{{ __('Nom etudiant') }}</label>
-                            <div class="col-md-6">
-                                <input id="nom_etudiant" type="text" class="form-control @error('nom_etudiant') is-invalid @enderror" name="nom_etudiant" value="{{ old('nom_etudiant') }}" autocomplete="nom_etudiant" autofocus>
+<style>
 
-                                @error('nom_etudiant')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
+.mytitle{
 
-                        <div class="form-group row">
-                            <label for="email_etudiant" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-                            <div class="col-md-6">
-                                <input id="email_etudiant" type="email" class="form-control @error('email_etudiant') is-invalid @enderror" name="email_etudiant" value="{{ old('email_etudiant') }}"  autocomplete="email_etudiant">
-                                @error('email_etudiant')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
+text-align: center;
 
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password"  autocomplete="new-password">
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
+}
 
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" autocomplete="new-password">
-                            </div>
-                        </div>
+</style>
 
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+<div class="container" > 
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card"> 
+                    <div class="card-header"> 
+                            <h1 class="mytitle">Create Etudient</h1>  
+                   </div>  <br>
+                    <div class="card-body">  
+    
+                            @if(count($errors)>0)
+                            <ul class="navbar-nav mr-auto">
+                                  @foreach ($errors->all() as $er) 
+                                 <li class="nav-item active">
+                                       {{$er}}
+                                      </li>       
+                                 @endforeach
+                                  </ul> <br>
+                             @endif  
+                            <form action="/salle/store" method="POST">
+                                {{ csrf_field() }}
+                                    <div class="form-group">
+                                      <label for="nom_etudient">Nom : </label>
+                                      <input type="text" class="form-control" name="nom_etudient" id="nom_etudient" placeholder="Enter votre Nom">  
+                                    </div>
+                                    <div class="form-group">
+                                      <label for="prenom_etudient">Prenom : </label>
+                                      <input type="text" class="form-control" name="prenom_etudient" id="prenom_etudient" placeholder="Enter votre Prenom">  
+                                    </div> 
+                                    <div class="form-group">
+                                        <label for="sexe">Sexe : </label>
+                                        <input type="text" class="form-control" name="sexe" id="sexe" placeholder="Enter votre sexe">  
+                                      </div> 
+                                    <div class="form-group">
+                                            <label for="code_massar">Code Massar : </label>
+                                            <input type="text" class="form-control" name="code_massar" id="code_massar" placeholder="Enter votre Code Massar">  
+                                          </div>
+                                    <div class="form-group">
+                                            <label for="ville_origine">Ville Origine : </label>
+                                            <input type="text" class="form-control" name="ville_origine" id="ville_origine" placeholder="Enter votre Ville Origine">     
+                                   </div>      
+                                    <div class="form-group">
+                                            <label for="date_naissance">Date Naissance : </label>
+                                            <input type="text" class="form-control" name="date_naissance" id="date_naissance" placeholder="Enter votre Date Naissance"></div> 
+                                         <div class="form-group">
+                                           <label for="telephone">Telephone : </label>
+                                           <input type="text" class="form-control" name="telephone" id="telephone" placeholder="Enter votre Telephone">  
+                                           </div>   
+                                    <div class="form-group">
+                                            <label for="ville_residence	">Ville Residence : </label>
+                                            <input type="text" class="form-control" name="ville_residence" id="ville_residence" placeholder="Enter votre Ville Residence"></div>            
+                                    <div class="form-group">
+                                            <label for="adresse_etudient">Adresse : </label>
+                                            <input type="text" class="form-control" name="adresse_etudient" id="adresse_etudient" placeholder="Enter votre Adresse"></div> 
+                                           <div class="form-group">
+                                                <label for="nomsalle">Email : </label>
+                                                <input type="text" class="form-control" name="email" id="email" placeholder="Enter votre Email">     
+                                           </div> 
+                                          <div class="form-group">
+                                            <label for="password"> Password : </label>
+                                            <input type="password" class="form-control" name="password" id="password"  placeholder="Enter votre Password">     
+                                           </div>  
+                                           <div class="form-group">
+                                                <label for="photo_etudient">Entrez Votre Photo</label>
+                                                <input type="file" class="form-control-file" name="photo_etudient" id="photo_etudient">
+                                              </div> 
+                                           <div>
+                                           <button type="submit" class="btn btn-primary">Ajouter </button> 
+                                        </div> 
+                                  </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
+    </div> 
+
+ 
+    
 @endsection

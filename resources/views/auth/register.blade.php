@@ -12,20 +12,56 @@
                     {{--  Formulaire de l'admin  --}}
                     <form method="POST" action='{{ url("register/$url") }}' aria-label="{{ __('Register') }}">
                         @csrf
-
+ 
                         <div class="form-group row">
-                            <label for="name_admin" class="col-md-4 col-form-label text-md-right">{{ __('Nom Admin') }}</label>
+                            <label for="nom_admin" class="col-md-4 col-form-label text-md-right">{{ __('Nom ') }}</label>
                             <div class="col-md-6">
-                                <input id="name_admin" type="text" class="form-control @error('name_admin') is-invalid @enderror" name="name_admin" value="{{ old('name_admin') }}" autocomplete="name_admin" autofocus>
+                                <input id="nom_admin" type="text" class="form-control @error('nom_admin') is-invalid @enderror" name="nom_admin" value="{{ old('name_admin') }}" autocomplete="nom_admin" autofocus>
 
-                                @error('name_admin')
+                                @error('nom_admin')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
                         </div>
+                        
+                        <div class="form-group row">
+                            <label for="prenom_admin" class="col-md-4 col-form-label text-md-right">{{ __('Prenom ') }}</label>
+                            <div class="col-md-6">
+                                <input id="prenom_admin" type="text" class="form-control @error('prenom_admin') is-invalid @enderror" name="prenom_admin" value="{{ old('prenom_admin') }}" autocomplete="prenom_admin" autofocus>
 
+                                @error('prenom_admin')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div> 
+                        <div class="form-group row">
+                            <label for="telephone_admin" class="col-md-4 col-form-label text-md-right">{{ __('Telephone ') }}</label>
+                            <div class="col-md-6">
+                                <input id="telephone_admin" type="text" class="form-control @error('telephone_admin') is-invalid @enderror" name="telephone_admin" value="{{ old('telephone_admin') }}" autocomplete="telephone_admin" autofocus>
+
+                                @error('telephone_admin')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div> 
+                        <div class="form-group row">
+                            <label for="adresse_admin" class="col-md-4 col-form-label text-md-right">{{ __('Adresse ') }}</label>
+                            <div class="col-md-6">
+                                <input id="adresse_admin" type="text" class="form-control @error('adresse_admin') is-invalid @enderror" name="adresse_admin" value="{{ old('adresse_admin') }}" autocomplete="adresse_admin" autofocus>
+
+                                @error('adresse_admin')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div> 
                         <div class="form-group row">
                             <label for="email_admin" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
                             <div class="col-md-6">
@@ -37,6 +73,17 @@
                                 @enderror
                             </div>
                         </div>
+                        <div class="form-group row">
+                            <label for="photo_admin" class="col-md-4 col-form-label text-md-right">{{ __('Photo') }}</label>
+                            <div class="col-md-6">
+                                <input type="file" class="form-control-file" name="photo_admin" id="photo_admin" >
+                                @error('photo_admin')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div> 
 
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
