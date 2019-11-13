@@ -68,7 +68,7 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
-                        <a href="{{ url('/home') }}">Home</a>
+                        <a href="{{ url('/home') }}">Home</a> 
                     @else
                         <a href="{{ route('login') }}">Login</a>
 
@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Tamkine tutoring
+                    Tamkine tutoring 
                 </div>
 
                 <div class="links">
@@ -94,7 +94,7 @@
                     <a href="{{ route('new_gestionnaire') }}">Gestionnaire salle</a>
                     <a href="{{ route('new_parent') }}">Parent</a>
                 </div>
-            </div>
+            </div> 
         </div>
     </body>
 </html>

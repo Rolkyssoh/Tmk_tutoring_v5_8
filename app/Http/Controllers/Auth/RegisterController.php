@@ -163,8 +163,17 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'nom_etudiant' => ['required', 'string', 'max:255'],
+            'prenom_etudiant' => ['required', 'string', 'max:255'],
+            'sexe' => ['required', 'string', 'max:255'],
+            'code_massar' => ['required', 'string', 'max:255'],
+            'ville_origine' => ['required', 'string', 'max:255'],
+            'date_naissance' => ['required', 'string', 'max:255'],
+            'telephone' => ['required', 'string', 'max:255'],
+            'ville_residence' => ['required', 'string', 'max:255'],
+            'adresse_etudiant' => ['required', 'string', 'max:255'],
             'email_etudiant' => ['required', 'string', 'email', 'max:255', 'unique:etudiants'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            // 'photo_etudient' => ['required', 'string', 'max:255'],
         ]);
     }
 
@@ -173,6 +182,14 @@ class RegisterController extends Controller
         $this->etudiantValidator($request->all())->validate();
         $admin = Etudiant::create([
             'nom_etudiant' => $request['nom_etudiant'],
+            'prenom_etudiant' => $request['prenom_etudiant'],
+            'sexe' => $request['sexe'],
+            'code_massar' => $request['code_massar'],
+            'ville_origine' => $request['ville_origine'],
+            'date_naissance' => $request['date_naissance'],
+            'telephone' => $request['telephone'],
+            'ville_residence' => $request['ville_residence'],
+            'adresse_etudiant' => $request['adresse_etudiant'],
             'email_etudiant' => $request['email_etudiant'],
             'password' => Hash::make($request['password']),
         ]);

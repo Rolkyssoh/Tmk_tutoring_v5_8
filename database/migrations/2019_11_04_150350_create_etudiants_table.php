@@ -16,10 +16,24 @@ class CreateEtudiantsTable extends Migration
         Schema::create('etudiants', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nom_etudiant');
-            $table->string('email_etudiant')->unique();
+            $table->string('prenom_etudiant');
+            $table->string('sexe');
+            $table->string('ville_residence');
+            $table->date('date_naissance');
+            $table->string('ville_origine');
+            $table->string('code_massar');
+            $table->string('adresse_etudiant');
+            $table->string('email');
+            $table->string('telephone');
             $table->string('password');
             $table->timestamp('email_verified_at')->nullable();
             $table->boolean('is_etudiant')->default(false);
+            $table->BigInteger('id_niveauscolaire_fk')->unsigned()->nullable();
+            $table->BigInteger('id_agenda_fk')->unsigned()->nullable();
+            $table->BigInteger('id_parent_fk')->unsigned()->nullable();
+            $table->BigInteger('id_dirregion_fk')->unsigned()->nullable();
+            $table->BigInteger('id_conference_fk')->unsigned()->nullable();
+            $table->string('photo_etudient')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

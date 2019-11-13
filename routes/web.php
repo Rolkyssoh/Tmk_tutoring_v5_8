@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('accueil');
 });
 
 Auth::routes(['verify' => true]);
@@ -61,21 +61,18 @@ Route::post('/register/parent_tut', 'Auth\RegisterController@createParent');
 
 
 
-
+// compte user
 Route::view('/home', 'home')->middleware(['verified', 'auth']);
-// Route::view('/admin', 'admin');
 Route::resource('admins', 'AdminsController');
-// Route::view('/enseignant', 'enseignant');
 Route::resource('enseignants', 'EnseignantController');
-// Route::view('/etudiant', 'etudiant');
 Route::resource('etudiants', 'EtudiantsController');
-// Route::view('/directeur_reg', 'directeur_reg');
 Route::resource('directeur_regs', 'DrRegsController');
-// Route::view('/directeur_prov', 'directeur_prov');
 Route::resource('directeur_provs', 'DrProvsController');
-// Route::view('/inspecteur_reg', 'inspecteur_reg');
 Route::resource('inspecteurs', 'InspecteursController');
-// Route::view('/gestionnnaire', 'gestionnnaire');
 Route::resource('gestionnaires', 'GestionnairesController');
-// Route::view('/parent_tut', 'parent_tut');
 Route::resource('parent_tuts', 'ParenttsController');
+
+// Pour les cours
+Route::resource('cours', 'CoursController');
+// Section
+Route::resource('sections', 'SectionsController');

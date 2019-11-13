@@ -16,10 +16,18 @@ class CreateEnseignantsTable extends Migration
         Schema::create('enseignants', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nom_enseignant');
-            $table->string('email_enseignant')->unique();
+            $table->string('prenom_enseignant');
+            $table->string('tel_enseignant');
+            $table->string('email_enseignant');
+            $table->date('adresse_enseignant');
+            $table->string('photo_enseignant')->nullable();
             $table->string('password');
             $table->timestamp('email_verified_at')->nullable();
             $table->boolean('is_teacher')->default(false);
+            $table->BigInteger('id_matiere_fk')->unsigned()->nullable();
+            $table->BigInteger('id_agenda_fk')->unsigned()->nullable();
+            $table->BigInteger('id_dirregional_fk')->unsigned()->nullable();
+            $table->BigInteger('id_conference_fk')->unsigned()->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

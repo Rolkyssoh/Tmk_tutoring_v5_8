@@ -35,13 +35,18 @@
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <!-- Left Side Of Navbar -->
-                        <ul class="navbar-nav mr-auto">
+                        <ul class="navbar-nav mr-auto"> 
 
                         </ul>
 
                         <!-- Right Side Of Navbar -->
                         <ul class="navbar-nav ml-auto">
                             <!-- Authentication Links -->
+                           <li class="nav-item">
+                                <p class="navbar-btn">
+                                    <a href="{{ route('cours.create') }}" class="btn btn-primary"><i class="fa fa-plus"></i> Créer un évènement</a>
+                                </p>
+                           </li>
                            <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     Hi There <span class="caret"></span>
